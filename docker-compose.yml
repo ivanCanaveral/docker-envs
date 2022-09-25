@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  service-a:
+    build: service-a
+    command: "sleep $SLEEP_TIME"
+
+  service-b:
+    build: 
+      dockerfile: service-b/Dockerfile
+      args: # available just during build
+          ANIMAL: dog
+    environment: # available during execution
+      PRODUCTION: 'true'
